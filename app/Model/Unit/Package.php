@@ -11,10 +11,18 @@ class Package extends Unit {
 	const WEIGHT_MIN = 10;
 	const WEIGHTY_MAX = 20;
 
+	/**
+	 * Package constructor.
+	 * @param int $weight
+	 * @throws \Exception
+	 */
 	public function __construct(int $weight) {
 		parent::__construct($weight);
 	}
 
+	/**
+	 * @return mixed|void
+	 */
 	protected function validate() {
 		Assert::greaterThanEq(
 			$this->weight,

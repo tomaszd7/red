@@ -8,4 +8,6 @@ interface VehicleInterface {
 	public function addUnit(UnitInterface $unit): void;
 
 	public function load(array $units): void;
+
+	public function getUnits(): array;
 }

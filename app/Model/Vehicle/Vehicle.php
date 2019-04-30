@@ -66,4 +66,11 @@ abstract class Vehicle implements VehicleInterface {
 		$this->currentWeight += $unit->getWeight();
 	}
 
+	/**
+	 * @return array
+	 */
+	public function getUnits(): array {
+		return $this->units;
+	}
+
 }
