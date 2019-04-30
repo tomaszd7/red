@@ -1,0 +1,15 @@
+{
+    "name": "tomasz/red",
+    "license": "",
+    "type": "project",
+    "require": {
+        "webmozart/assert": "^1.4",
+        "ramsey/uuid": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {"Red\\": "app/"}
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.2"
+    }
+}
