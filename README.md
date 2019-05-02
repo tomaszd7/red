@@ -84,5 +84,11 @@ Sposób działania podejrzymy prostym wydrukiem:
 `echo nl2br($packer);` 
  
 
+### Logika
+* Logika jest uproszczona: paczki przepakowywane są po kolei, tzn. gdy kolejna paczka nie mieści się  
+w danym samochodzie przechodzi na następny (nie próbuje się dołożyć paczki mniejszej).    
+* Założone są asercje na warunki brzegowe jednak błędy zatrzymują całą aplikację a nie tylko jej część. 
+* Exception `VehicleIsFullException` jest rzucany specjalnie jako informacja o kolejnym samochodzie.  
+* identyfikacja paczek następuje jako UUID string 
  
 
