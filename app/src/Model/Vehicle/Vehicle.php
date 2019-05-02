@@ -73,4 +73,12 @@ abstract class Vehicle implements VehicleInterface {
 		return $this->units;
 	}
 
+	public function __toString() {
+		$return = "VEHICLE: ".(new \ReflectionClass($this))->getShortName() ."\n";
+		foreach ($this->units as $unit) {
+			$return .= (string) $unit;
+		}
+		return $return;
+	}
+
 }

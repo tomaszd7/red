@@ -18,7 +18,7 @@ abstract class Unit implements UnitInterface {
 	 * @throws \Exception
 	 */
 	public function __construct(int $weight) {
-		$this->uuid = Uuid::uuid4()->toString();
+		$this->uuid = substr(Uuid::uuid4()->toString(), 0, 8);
 		$this->weight = $weight;
 		$this->validate();
 	}
@@ -40,5 +40,11 @@ abstract class Unit implements UnitInterface {
 	 */
 	public function getWeight(): int {
 		return $this->weight;
+	}
+
+	public function __toString() {
+		$return = "&nbsp&nbspUNIT: " .(new \ReflectionClass($this))->getShortName();
+		$return .= "&nbsp&nbsp&nbsp&nbsp id: {$this->uuid} weight: {$this->weight}\n";
+		return $return;
 	}
 }

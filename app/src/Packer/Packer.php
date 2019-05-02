@@ -23,7 +23,7 @@ class Packer {
 	 * Packer constructor.
 	 */
 	public function __construct() {
-		$this->ourVehicles = [];
+		$this->ourVehicles    = [];
 		$this->currentVehicle = [];
 	}
 
@@ -49,7 +49,7 @@ class Packer {
 			}
 		}
 		// clean
-		$this->ourVehicles = array_merge($this->ourVehicles, array_values($this->currentVehicle));
+		$this->ourVehicles    = array_merge($this->ourVehicles, array_values($this->currentVehicle));
 		$this->currentVehicle = [];
 	}
 
@@ -64,7 +64,7 @@ class Packer {
 			$this->currentVehicle[$vehicleType]->addUnit($unit);
 		} catch (VehicleIsFullException $fullVehicleException) {
 			// todo check for max recur
-			$this->ourVehicles[] = $this->currentVehicle[$vehicleType];
+			$this->ourVehicles[]                = $this->currentVehicle[$vehicleType];
 			$this->currentVehicle[$vehicleType] = VehicleFactory::createVehicle($unit);
 			$this->currentVehicle[$vehicleType]->addUnit($unit);
 		} catch (\Exception $e) {
@@ -81,6 +81,20 @@ class Packer {
 		if (!isset($this->currentVehicle[$vehicleType]) || is_null($this->currentVehicle[$vehicleType])) {
 			$this->currentVehicle[$vehicleType] = VehicleFactory::createVehicle($unit);
 		}
+	}
+
+	public function __toString() {
+		// incoming
+		$return = "<b>" . strtoupper("Incoming vehicles:") . "</b>\n";
+		foreach ($this->incomingVehicles as $incoming) {
+			$return .= (string)$incoming . "\n";
+		}
+		// our
+		$return .= "\n\n<b>" . strtoupper("Our vehicles:") . "</b>\n";
+		foreach ($this->ourVehicles as $our) {
+			$return .= (string)$our . "\n";
+		}
+		return $return;
 	}
 
 }

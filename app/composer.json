@@ -1,15 +1,18 @@
 {
-    "name": "tomasz/red",
-    "license": "",
-    "type": "project",
-    "require": {
-        "webmozart/assert": "^1.4",
-        "ramsey/uuid": "^3.8"
-    },
-    "autoload": {
-        "psr-4": {"Red\\": "src/"}
-    },
-    "require-dev": {
-        "symfony/var-dumper": "^4.2"
+  "name": "tomasz/red",
+  "license": "",
+  "type": "project",
+  "require": {
+    "webmozart/assert": "^1.4",
+    "ramsey/uuid": "^3.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Red\\": "src/",
+      "Red\\Test\\": "test/"
     }
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^4.2"
+  }
 }
