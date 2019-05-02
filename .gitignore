@@ -1,2 +1,4 @@
+.git/
+nbproject/
+logs/
 .idea/
-vendor/
